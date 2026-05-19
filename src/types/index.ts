@@ -7,15 +7,24 @@ export interface Skill {
     updated_at?: string;
 }
 
+export interface ProjectImage {
+  id: number;
+  project_id: number;
+  image_url: string;
+  caption?: string;
+  created_at?: string;
+}
+
 export interface Project {
-    id:number;
-    title: string;
-    description: string;
-    demo_url?: string;
-    github_url?: string;
-    image_url: string;
-    created_at?: string;
-    updated_at?: string;
+  id: number;
+  title: string;
+  description: string;
+  image_url: string;
+  demo_url?: string;
+  github_url?: string;
+  created_at?: string;
+  // Tambahkan baris ini untuk menampung data galeri dari backend
+  gallery?: ProjectImage[]; 
 }
 
 export interface Message {

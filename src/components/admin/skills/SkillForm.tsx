@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { createSkill, updateSkill } from "@/services/Skils";
 import { Skill } from "@/types";
@@ -10,7 +12,7 @@ interface SkillFormProps {
 
 export default function SkillForm({ skillToEdit, onSuccess, onCancel }: SkillFormProps) {
   const [name, setName] = useState("");
-  const [level, setLevel] = useState("");
+  const [level, setLevel] = useState("Beginner");
   const [image, setImage] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function SkillForm({ skillToEdit, onSuccess, onCancel }: SkillFor
       setImage(null);
     } else {
       setName("");
-      setLevel("");
+      setLevel("Beginner");
       setImage(null);
     }
   }, [skillToEdit]);
@@ -29,7 +31,7 @@ export default function SkillForm({ skillToEdit, onSuccess, onCancel }: SkillFor
     e.preventDefault();
     
     if (!skillToEdit && !image) {
-      alert("Gambar wajib diunggah untuk project baru!");
+      alert("Gambar wajib diunggah untuk skill baru!");
       return;
     }
 
